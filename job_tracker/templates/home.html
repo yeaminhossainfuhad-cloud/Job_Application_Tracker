@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Job Tracker{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">Welcome to Job Tracker</h1>
+        <p class="lead">Keep track of all your job applications in one place.</p>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Total Applications</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ total }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Applied</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ status_counts.Applied|default:0 }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Interview</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ status_counts.Interview|default:0 }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Offer</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ status_counts.Offer|default:0 }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">Accepted</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ status_counts.Accepted|default:0 }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Rejected</div>
+            <div class="card-body">
+                <h1 class="card-title display-4">{{ status_counts.Rejected|default:0 }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

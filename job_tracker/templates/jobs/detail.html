@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Application Details{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>{{ job.company_name }} - {{ job.position }}</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Location:</strong> {{ job.job_location }}</p>
+        <p><strong>Salary:</strong> {% if job.salary %}${{ job.salary }}{% else %}Not specified{% endif %}</p>
+        <p><strong>Status:</strong> <span class="badge bg-{% if job.status == 'Applied' %}info{% elif job.status == 'Interview' %}warning{% elif job.status == 'Offer' %}success{% elif job.status == 'Accepted' %}secondary{% else %}danger{% endif %}">{{ job.status }}</span></p>
+        <p><strong>Application Date:</strong> {{ job.application_date }}</p>
+        <p><strong>Deadline:</strong> {{ job.deadline }}</p>
+        <p><strong>Notes:</strong> {{ job.notes|default:"No notes" }}</p>
+        <p><strong>Created:</strong> {{ job.created_at }}</p>
+        <p><strong>Last Updated:</strong> {{ job.updated_at }}</p>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'jobs:job_update' job.pk %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'jobs:job_delete' job.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'jobs:job_list' %}" class="btn btn-secondary">Back to list</a>
+    </div>
+</div>
+{% endblock %}
