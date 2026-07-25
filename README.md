@@ -105,7 +105,7 @@ python manage.py runserver
 
 ## 📸 Screenshots
 
-> *Add your own screenshots by placing images in a `screenshots/` folder and referencing them.*
+
 
 ![Dashboard](screenshots/dashboard.jpg)  
 ![Add Form](screenshots/add.jpg)  
